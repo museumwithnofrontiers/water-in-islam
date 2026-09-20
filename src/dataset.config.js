@@ -16,8 +16,9 @@ const { manifest } = useDataPackage()
 
 // ── Source-project site config (epic #1727 phase 4) ─────────────────────────
 //
-// Per-project-UUID editorial choices ItemSheet.vue makes about a borrowed
-// item's source: which colour swatch its chip uses (one of the site's own
+// Per-project-UUID editorial choices composables/sheet.js makes about a
+// borrowed item's source, on top of RecordSheetView's own spec keys (epic
+// #1728): which colour swatch its chip uses (one of the site's own
 // `mwnf-chip--<name>` classes, `src/styles/site.css` — not viewer-layout's
 // shared `mwnf-chip--<family>` vocabulary, `content.css`, which named its
 // families after legacy project keys and which this exhibition no longer
@@ -26,12 +27,11 @@ const { manifest } = useDataPackage()
 // this package's own `manifest.projects`
 // (`npm pack @museumwnf/water-in-islam-data`) — never the legacy project
 // key, which this exhibition no longer reads. Shared verbatim with the
-// sibling the-use-of-colours-in-art (museumwithnofrontiers/the-use-of-colours-in-art#69);
-// this package's own UUIDs differ (no Discover Baroque Art or Discover
-// Carpet Art here; "The Table Is Set" instead, legacy's `EXTHE`, which
-// shared the exhibition's own `EXH` family — `PROJECT_FAMILIES.EXTHE` in
-// viewer-core's now-deprecated table), so this copy of the two maps is
-// ported by hand, not copied.
+// sibling the-use-of-colours-in-art; that package's own UUIDs differ (no
+// Discover Baroque Art or Discover Carpet Art here; "The Table Is Set"
+// instead, legacy's `EXTHE`, which shared the exhibition's own `EXH` family
+// — `PROJECT_FAMILIES.EXTHE` in viewer-core's now-deprecated table), so this
+// copy of the two maps is ported by hand, not copied.
 export const projectColors = {
   '61c122ac-ea86-5462-8bab-6b86138c49b2': 'islamic-art', // Discover Islamic Art
   '928f5e0d-53e3-5f53-b9c2-5af389c30dd4': 'islamic-art', // Explore Islamic Art Collections
