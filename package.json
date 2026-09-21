@@ -16,8 +16,8 @@
   "dependencies": {
     "@museumwnf/viewer-core": "^1.16.1",
     "@museumwnf/viewer-i18n": "^3.1.1",
-    "@museumwnf/viewer-layout": "^2.15.0",
-    "@museumwnf/water-in-islam-data": "^1.0.12",
+    "@museumwnf/viewer-layout": "^2.15.1",
+    "@museumwnf/water-in-islam-data": "^1.0.14",
     "vue": "^3.5.0",
     "vue-router": "^5.0.0"
   },
