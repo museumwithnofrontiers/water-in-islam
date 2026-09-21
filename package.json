@@ -14,7 +14,7 @@
     "namespace": "waterInIslam"
   },
   "dependencies": {
-    "@museumwnf/viewer-core": "^1.16.1",
+    "@museumwnf/viewer-core": "^2.0.0",
     "@museumwnf/viewer-i18n": "^3.1.1",
     "@museumwnf/viewer-layout": "^2.15.1",
     "@museumwnf/water-in-islam-data": "^1.0.14",
