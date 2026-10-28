@@ -17,7 +17,7 @@
     "@museumwnf/viewer-core": "^2.10.0",
     "@museumwnf/viewer-i18n": "^6.2.0",
     "@museumwnf/viewer-layout": "^3.11.2",
-    "@museumwnf/water-in-islam-data": "^1.0.27",
+    "@museumwnf/water-in-islam-data": "^1.0.28",
     "vue": "^3.5.0",
     "vue-router": "^5.0.0"
   },
