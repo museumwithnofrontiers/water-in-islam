@@ -45,8 +45,31 @@ describe('water-in-islam smoke test', () => {
   // from the strip behind "Add Related Works", and the source's selection
   // shows the target's name/relation text in PictureNarrative's "Related"
   // block.
+  //
+  // @museumwnf/viewer-layout 3.63.0 draws the theme page as legacy's
+  // ThemeComponent (museumwithnofrontiers/inventory-app#2379): related works
+  // only on a sub-theme, shown as pictures, their relation text once one is
+  // chosen. Until the site takes 3.63.0 it still draws the composed page, so
+  // each test checks the page it finds; the composed branch goes then.
+  const legacyPage = async (host) => {
+    await vi.waitFor(() => expect(host.querySelector('.mwnf-dxa-theme-page__content, .mwnf-essay')).not.toBeNull(), { timeout: 20000 })
+    return Boolean(host.querySelector('.mwnf-dxa-theme-page__content'))
+  }
+
   it('shows a picture\'s related items and the "Add related works" toggle', async () => {
     const { app, host } = await mountSite('#/theme/1/1/4')
+    if (await legacyPage(host)) {
+      await vi.waitFor(() => expect(host.querySelector('.mwnf-dxa-theme-page__related')).not.toBeNull(), { timeout: 20000 })
+      expect(host.querySelector('.mwnf-dxa-theme-page__control').textContent).toContain('Add Related Works')
+      expect(host.querySelectorAll('.mwnf-dxa-theme-page__thumb').length).toBeLessThan(36)
+      const target = [...host.querySelectorAll('.mwnf-dxa-theme-page__related .mwnf-dxa-theme-page__related-image img')]
+        .find((img) => img.alt.includes('Ain es Sultan, 50 sq. miles'))
+      expect(target).toBeTruthy()
+      target.click()
+      await vi.waitFor(() => expect(host.querySelector('.mwnf-dxa-theme-page__related').textContent).toContain('This item shows the water sources of the Jericho Oasis.'), { timeout: 20000 })
+      app.unmount()
+      return
+    }
     await vi.waitFor(() => expect(host.querySelector('.mwnf-picture-narrative__related')).not.toBeNull(), { timeout: 20000 })
 
     const toggle = host.querySelector('.mwnf-picture-gallery__toggle')
@@ -73,6 +96,12 @@ describe('water-in-islam smoke test', () => {
   // ("Islamic Environmental Ethics and Stewardship").
   it('renders a related picture whose target lives in another theme', async () => {
     const { app, host } = await mountSite('#/theme/0/overview/4')
+    if (await legacyPage(host)) {
+      // Legacy showed no related works on an overview.
+      expect(host.querySelector('.mwnf-dxa-theme-page__related')).toBeNull()
+      app.unmount()
+      return
+    }
     await vi.waitFor(() => expect(host.querySelector('.mwnf-picture-narrative__related')).not.toBeNull(), { timeout: 20000 })
 
     const related = host.querySelector('.mwnf-picture-narrative__related')
