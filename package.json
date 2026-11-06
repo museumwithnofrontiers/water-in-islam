@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@museumwnf/viewer-core": "^2.17.0",
-    "@museumwnf/viewer-i18n": "^6.11.0",
+    "@museumwnf/viewer-i18n": "^6.12.0",
     "@museumwnf/viewer-layout": "^3.64.0",
     "@museumwnf/water-in-islam-data": "^1.0.32",
     "vue": "^3.5.44",
