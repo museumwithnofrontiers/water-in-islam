@@ -18,7 +18,7 @@
     "@museumwnf/viewer-i18n": "^6.18.0",
     "@museumwnf/viewer-layout": "^3.75.1",
     "@museumwnf/water-in-islam-data": "^1.0.37",
-    "vue": "^3.5.44",
+    "vue": "^3.5.45",
     "vue-router": "^5.4.0"
   },
   "devDependencies": {
